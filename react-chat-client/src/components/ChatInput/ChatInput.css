@@ -1,14 +1,16 @@
-.ChatInput-container {
-  position: absolute;
-  bottom: 0rem;
-  width: 100%;
+.inputContainer {
+  position: relative;
 }
 
-.ChatInput-form {
+.inputForm {
   display: flex;
 }
 
-.ChatInput-form input {
+.inputForm input {
   flex: 1;
   height: 2rem;
+}
+.send{
+  width: 20px;
+  height: 20px;
 }

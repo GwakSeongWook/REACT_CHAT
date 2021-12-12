@@ -1,0 +1,27 @@
+.logContainer{
+    position: relative;
+    overflow: auto;
+    height: 85%;
+    border: 1px solid rgb(100, 100, 100);
+}
+.logCard{
+    position: relative;
+    background-color: rgb(220, 220, 250);
+    border-radius: 20px;
+    margin: 20px 10px;
+    padding: 15px 20px;
+    width: 35%;
+    left: 30%;
+    top: 100px;
+    font-weight: bold;
+}
+.userInfo{
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    color: rgb(100, 100, 250);
+}
+
+.msg{
+    word-break: break-all;
+}

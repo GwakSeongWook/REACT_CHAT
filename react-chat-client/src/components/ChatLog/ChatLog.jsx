@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
+import "./ChatLog.css"
 
-const ChatLog = ({ socket }) => {
+const ChatLog = function({ socket }){
   const [msgList, setMsgList] = useState([]);
 
-  useEffect(() => {
-    // messsgeItem : {msg: String, name: String, timeStamp: String}
-    socket.on("onReceive", (messageItem) => {
+  useEffect(function(){
+    socket.on("onReceive", function(messageItem){
       setMsgList((msgList) => [...msgList, messageItem]);
-      console.log(messageItem);
     });
-    socket.on("onConnect", (systemMessage) => {
+    socket.on("onConnect", function(systemMessage){
       setMsgList((msgList) => [...msgList, { msg: systemMessage }]);
     });
-    socket.on("onDisconnect", (systemMessage) => {
+    socket.on("onDisconnect", function(systemMessage){
       setMsgList((msgList) => [...msgList, { msg: systemMessage }]);
     });
     return () => {
@@ -21,12 +20,14 @@ const ChatLog = ({ socket }) => {
   }, [socket]);
 
   return (
-    <div>
+    <div className="logContainer">
       {msgList.map((msg, idx) => (
-        <div key={idx}>
-          <div>{msg.userName}</div>
-          <div>{msg.timeStamp}</div>
-          <div>{msg.msg}</div>
+        <div className="logCard" key={idx}>
+          <div className="userInfo">
+            <div>{msg.userName}</div>
+            <div>{msg.timeStamp}</div>
+          </div>
+          <div className="msg">{msg.msg}</div>
         </div>
       ))}
     </div>

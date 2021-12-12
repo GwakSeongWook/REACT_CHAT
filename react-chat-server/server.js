@@ -9,7 +9,6 @@ const app = express();
 app.use(cors());
 
 const server = http.createServer(app);
-// socketio 생성후 서버 인스턴스 사용
 const io = socketIO(server, {
   cors: {
     origin: "*",
@@ -19,22 +18,22 @@ const io = socketIO(server, {
   },
 });
 
-io.on("connection", (socket) => {
+io.on("connection", function(socket){
   // join : 채팅 참여 이벤트
-  socket.on("join", ({ roomName: room, userName: user }) => {
+  socket.on("join", function({ roomName: room, userName: user }){
     socket.join(room);
     io.to(room).emit("onConnect", `${user} 님이 입장했습니다.`);
-    // send : 클라이언트가 메시지 보내는 이벤트
-    // item: {name: String, msg: String, timeStamp: String}
-    socket.on("onSend", (messageItem) => {
+    socket.on("onSend", function(messageItem){
       io.to(room).emit("onReceive", messageItem);
     });
-
-    socket.on("disconnect", () => {
+1
+    socket.on("disconnect", function(){
       socket.leave(room);
       io.to(room).emit("onDisconnect", `${user} 님이 퇴장하셨습니다.`);
     });
   });
 });
 
-server.listen(port, () => console.log(`Listening on port ${port}`));
+server.listen(port, function(){
+  console.log(`Listening on port ${port}`)
+});

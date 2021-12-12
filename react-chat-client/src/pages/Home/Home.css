@@ -1,11 +1,91 @@
-.Home-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.card{
+  position: relative;
+  top: 200px;
+  left: 5%;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  height: 500px;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 40px;
+}
+.cardLabel{
+  font-size: 20px;
+  margin: 0px 0px;
+  letter-spacing: 3px;
+  color: rgb(0, 150, 200);
+  font-weight: bold;
 }
 
-.Join-button {
-  margin-top: 1rem;
+.cardInput{
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 20px;
+  height: 30px;
+  margin: 10px 0px; 
+  padding: 5px 20px;
+  font-weight: bold;
+}
+.cardInput:hover{
+  border: 1px solid rgb(0, 150, 200);
+}
+.cardInput:focus{
+  outline: none;
+  border: 1px solid rgb(0, 150, 200);
+}
+
+.JoinButton {
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  margin: 5px 0px;
+  background-color: white;
+  width: 210px;
+  height: 40px;
+}
+
+.textDecoN{
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.textDecoN:visited{
+  color: black;
+}
+.textDecoN:hover{
+  color: rgb(100, 100, 100)
+}
+
+.listCard{
+  position: relative;
+  top: 200px;
+  left: 10%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  height: 500px;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 40px;
+  margin: 0px 40px;
+}
+
+.listName{
+  position: relative;
+  color:rgb(0, 150, 200);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.list{
+  padding: 10px 50px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  color: rgb(0, 191, 255)
 }

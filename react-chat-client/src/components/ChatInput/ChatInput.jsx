@@ -1,11 +1,10 @@
-import React, { useRef, useState } from "react";
-import socketIOClient from "socket.io-client";
+import React, { useState } from "react";
 import "./ChatInput.css";
 
-const ChatInput = ({ userName, socket }) => {
+const ChatInput = function({ userName, socket }){
   const [chatMessage, setChatMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = function(e){
     e.preventDefault();
     socket.emit("onSend", {
       userName: userName ? userName : localStorage.getItem("userName"),
@@ -15,19 +14,19 @@ const ChatInput = ({ userName, socket }) => {
     setChatMessage("");
   };
 
-  const onChatMessageChange = (e) => {
+  const onChatMessageChange = function(e){
     setChatMessage(e.target.value);
   };
 
   return (
-    <div className="ChatInput-container">
-      <form className="ChatInput-form" onSubmit={handleSubmit}>
+    <div className="inputContainer">
+      <form className="inputForm" onSubmit={handleSubmit}>
         <input
           placeholder="메시지를 입력하세요."
           value={chatMessage}
           onChange={onChatMessageChange}
         ></input>
-        <button>전송</button>
+        <button><img className="send" src="/send.png" alt="send"/></button>
       </form>
     </div>
   );
